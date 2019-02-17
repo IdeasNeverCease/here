@@ -1,0 +1,6 @@
+# Files
+.DS_Store
+Thumbs.db
+
+# Directories
+node_modules
