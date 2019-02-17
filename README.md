@@ -20,7 +20,7 @@ _[Forked](https://github.com/lukejacksonn/servor) from Luke Jacksonn's Servør b
 Add `@inc/here` as a dev dependency using `npm i @inc/here -D` or run directly from the Terminal:
 
 ```bash
-npx @inc/here <directory> <fallback> <port> <open flag> <verbose flag>
+npx here <directory> <fallback> <port> <open flag> <verbose flag>
 ```
 
 * `<directory>` path to serve static files from (defaults to current directory `.`)
@@ -34,7 +34,7 @@ Example usage with npm scripts in a projects `package.json` file:
 ```json
 {
   scripts: {
-    start: 'npx @inc/here www index.html 8080 --verbose'
+    start: 'npx here www index.html 8080 --verbose'
   }
 }
 ```
