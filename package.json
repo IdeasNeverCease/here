@@ -37,5 +37,5 @@
     "test:lint": "standardx --verbose | snazzy",
     "test:package": "node here test index.html 8080 --open --verbose"
   },
-  "version": "1.0.1"
+  "version": "1.0.2"
 }
