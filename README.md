@@ -29,7 +29,7 @@ npx here <directory> <fallback> <port> <open flag> <verbose flag>
 * `<open flag>` if you want **here** to launch site in your default browser, pass `--open` (defaults to `false`)
 * `<verbose flag>` if you want logging, pass `--verbose` (defaults to `false`)
 
-Example usage with npm scripts in a projects `package.json` file:
+Example usage with npm scripts in a project's `package.json` file:
 
 ```json
 {
