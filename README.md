@@ -26,7 +26,7 @@ npx here <directory> <fallback> <port> <open flag> <verbose flag>
 * `<directory>` path to serve static files from (defaults to current directory `.`)
 * `<fallback>` the file served for all non-file requests (defaults to `index.html`)
 * `<port>` what port you want to serve the files from (defaults to `8080`)
-* `<open flag>` if you want **here** to launch site in your default browser, pass `--open` (defaults to `false`)
+* `<open flag>` if you want **here** to launch the site in your default browser, pass `--open` (defaults to `false`)
 * `<verbose flag>` if you want logging, pass `--verbose` (defaults to `false`)
 
 Example usage with npm scripts in a project's `package.json` file:
