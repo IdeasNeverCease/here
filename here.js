@@ -3,7 +3,7 @@
 const fs = require("fs");
 const http = require("http");
 const path = require("path");
-const url = require("url");
+// const url = require("url");
 
 // ----------------------------------
 // Generate map of all known mimetypes
@@ -51,9 +51,7 @@ const isRouteRequest = uri =>
   uri
     .split("/")
     .pop()
-    .indexOf(".") === -1 ?
-    true :
-    false;
+    .indexOf(".") === -1;
 
 const sendError = (res, resource, status) => {
   res.writeHead(status);
@@ -81,7 +79,8 @@ const sendFile = (res, resource, status, file, ext) => {
 
 http
   .createServer((req, res) => {
-    const pathname = url.parse(req.url).pathname;
+    const local = "http://127.0.0.1" || "http://0.0.0.0";
+    const pathname = new URL(req.url, local).pathname;
     const isRoute = isRouteRequest(pathname);
     const status = isRoute && pathname !== "/" ? 301 : 200;
     const resource = isRoute ? `/${fallback}` : decodeURI(pathname);
@@ -108,8 +107,8 @@ http
 // Log startup details to terminal
 // ----------------------------------
 
-console.log(`\n 🗂  Serving files from ./${root} on http://localhost:${port}`); // eslint-disable-line no-console
-console.log(` 🖥  Using ${fallback} as the fallback for route requests\n`); // eslint-disable-line no-console
+process.stdout.write(`\n 🗂  Serving files from ./${root} on http://localhost:${port}`);
+process.stdout.write(`\n 🖥  Using ${fallback} as the fallback for route requests\n`);
 
 // ----------------------------------
 // Open the page in the default browser
@@ -118,9 +117,9 @@ console.log(` 🖥  Using ${fallback} as the fallback for route requests\n`); //
 if (autoopen) {
   const page = `http://localhost:${port}`;
   const open =
-    process.platform == "darwin" ?
+    process.platform === "darwin" ?
       "open" :
-      process.platform == "win32" ?
+      process.platform === "win32" ?
         "start" :
         "xdg-open";
 
